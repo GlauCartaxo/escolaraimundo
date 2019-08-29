@@ -9,7 +9,7 @@ from django.urls import reverse_lazy
 
 
 class UserLoginView(LoginView):
-    template_name = 'users/login.html'    
+    template_name = 'users/login.html'
 
 class UserLogoutView(LoginRequiredMixin, LogoutView):
     pass
