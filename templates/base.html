@@ -33,7 +33,7 @@
                           </li>  
                           {% else %}
                           <li class="nav-item">
-                            <a class="nav-link" href="{% url 'users:detail_users' request.user.id %}">  {{request.user}}  </a>
+                            <a class="nav-link" href="{% url 'users:detail_users' request.user.pk %}">  {{request.user}}  </a>
                             <li class="nav-item">
                               <a class="nav-link" href="{% url 'users:logout_users' %}">  Logout  </a>
                             </li>   
