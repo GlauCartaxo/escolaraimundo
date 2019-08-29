@@ -22,4 +22,5 @@ urlpatterns = [
 
     #apps
     path('',include('users.urls')),
+    path('',include('core.urls')),
 ]

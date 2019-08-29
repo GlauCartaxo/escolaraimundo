@@ -10,3 +10,5 @@ class User(AbstractUser):
     cpf = models.CharField(max_length=11, blank=True, null=True, unique=True)    
     rg = models.CharField('RG', max_length = 13, unique=True)
     dtNascimento = models.DateField(blank=True, null=True, verbose_name='Data de nascimento')
+    
+

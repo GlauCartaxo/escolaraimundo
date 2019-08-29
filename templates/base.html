@@ -26,22 +26,10 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                           <ul class="navbar-nav">
-                            <li class="nav-item active">
-                              <a class="nav-link" href="{% url 'posts:pagina_post' %}">Postagens <span class="sr-only">(Página atual)</span></a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link" href="{% url 'comentarios:comentario_comentarios' %}">Comentários</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link" href="{% url 'users:list_users' %}">Usuários</a>
-                            </li>
                             
                           {% if not request.user.is_authenticated %}  
                           <li class="nav-item">
-                              <a class="nav-link" href="{% url 'users:login_users' %}">Login</a>
-                          <li class="nav-item">
-                              <a class="nav-link" href="{% url 'users:signup_users' %}">  SignUp  </a>
-                          </li>      
+                              <a class="nav-link" href="{% url 'users:login_users' %}">Login</a>     
                           </li>  
                           {% else %}
                           <li class="nav-item">
@@ -53,14 +41,7 @@
                           {% endif %}
                             
                             <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" href="{% url 'posts:criar_post' %}" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Criar 
-                              </a>
                               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="{% url 'posts:criar_post' %}">Postar</a>
-                                <a class="dropdown-item" href="{% url 'comentarios:criarcoment_comentarios' %}">Comentar</a>
-                                <a class="dropdown-item" href="{% url 'categoria:adicionar_categoria' %}">Criar Categoria</a>
-                               
                               </div>
                             </li>
                           </ul>
