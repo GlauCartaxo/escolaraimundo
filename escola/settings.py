@@ -85,7 +85,7 @@ DATABASES = {
 }
 AUTH_USER_MODEL = 'users.User'
 LOGIN_URL = 'users:login_users'
-LOGIN_REDIRECT_URL ='users:detail_users'
+LOGIN_REDIRECT_URL ='core:index'
 LOGOUT_REDIRECT_URL ='users:login_users'
 
 # Password validation
