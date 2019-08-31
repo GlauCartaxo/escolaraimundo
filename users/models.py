@@ -10,5 +10,8 @@ class User(AbstractUser):
     cpf = models.CharField(max_length=11, blank=True, null=True, unique=True)    
     rg = models.CharField('RG', max_length = 13, unique=True)
     dtNascimento = models.DateField(blank=True, null=True, verbose_name='Data de nascimento')
-    
-
+    is_admin = models.BooleanField(default=False)
+    is_student = models.BooleanField(default=False)
+    is_teacher = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=True)
