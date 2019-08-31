@@ -5,5 +5,5 @@ from django.contrib.auth.forms import UserCreationForm
 class SignupCreateForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['username', 'email', 'cpf', 'nome','dtNascimento', 'rg' ]
+        fields = ['email', 'cpf', 'nome','dtNascimento', 'rg' ]
    
