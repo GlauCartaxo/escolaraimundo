@@ -84,7 +84,7 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'users.Usuario'
 LOGIN_URL = 'users:login_users'
 LOGIN_REDIRECT_URL ='core:index'
 LOGOUT_REDIRECT_URL ='users:login_users'

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from users.models import User
+from users.models import Usuario
 from django.views import generic
 from django.views.generic import DetailView
 from django.contrib.auth.views import LoginView, LogoutView
@@ -15,7 +15,7 @@ class UserLogoutView(LoginRequiredMixin, LogoutView):
     pass
 
 class UserDetailView(DetailView):
-    model = User
+    model = Usuario
     template_name = "users/detail.html"
     context_object_name = 'users'
 
