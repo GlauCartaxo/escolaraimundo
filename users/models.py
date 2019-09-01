@@ -4,7 +4,7 @@ from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
 
-class ClinicUserManager(BaseUserManager):
+class EscolaUserManager(BaseUserManager):
 
     def create_user(self, email, password=None):
         """
@@ -46,7 +46,7 @@ class Usuario(AbstractBaseUser):
     is_aluno = models.BooleanField(default=False)
     is_professor = models.BooleanField(default=False)
 
-    objects = ClinicUserManager()
+    objects = EscolaUserManager()
 
     USERNAME_FIELD = 'email'    #Usado para logar, juntamente, com a senha
 
