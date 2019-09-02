@@ -1,8 +1,10 @@
 from django.urls import path
-from avaliacao.views import AvaliacaoCreateView
+from avaliacao.views import AvaliacaoCreateView, AvaliacaoListView
 app_name = 'avaliacao'
 
 urlpatterns = [
 
     path('addavaliacao', AvaliacaoCreateView.as_view(),name='add_avaliacao'),
+    path('nota', AvaliacaoListView.as_view(), name='listnota' ),
+
 ]
