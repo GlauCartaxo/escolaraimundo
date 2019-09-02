@@ -11,11 +11,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*d25-utu2++f0-ju9*=&qfn(!ir7qz7agecghoqcz-8ygw=*l5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0", "localhost", "https://murmuring-scrubland-13968.herokuapp.com/"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -40,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
-
     
 
     #my apps
@@ -130,6 +127,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-PROJECT_ROOT = os.path.abspath(os.path.join(__file__, os.pardir))
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'core/static/')
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
