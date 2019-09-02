@@ -86,4 +86,7 @@ class Professor(Usuario):
     def save(self, *args, **kwargs):
         self.is_professor = True
         super(Professor, self).save(*args, **kwargs)
-
+    class Meta:
+        permissions = (
+            ('pode_mudar_nota', 'Pode mudar nota'),
+        )

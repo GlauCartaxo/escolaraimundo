@@ -4,6 +4,6 @@ from avaliacao.models import Avaliacao
 class AvaliacaoCreateForm(forms.ModelForm):
     class Meta:
         model = Avaliacao
-        fields = ['nota','professor', 'aluno', 'realisacao', ]  
+        fields = ['nota','realisacao', 'professor', 'aluno', ]  
       
     

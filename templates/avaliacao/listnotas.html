@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Blog | Postagens
+{% endblock title %}
+
+{% block scripts %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock scripts %}
+
+{% block body %}
+    <h1 class="bg-info">POSTAGENS:</h1>
+    <div class="card">
+    {% for p in avaliacao %} 
+    <div>
+        <p>{{p.aluno}}</p>
+        <P>{{p.professor}}</P>
+        <p>{{p.nota}} </p>
+        <p>{{p.realisacao}}</p>
+        </div>
+        
+        
+        {% empty %}
+        <div>
+        <p>VOCÊ NÃO POSSUI POSTS  :(</p>
+        </div>
+        </div>
+
+       
+        {% endfor %}
+       
+{% endblock body %}

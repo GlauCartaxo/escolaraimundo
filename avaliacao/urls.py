@@ -5,6 +5,6 @@ app_name = 'avaliacao'
 urlpatterns = [
 
     path('addavaliacao', AvaliacaoCreateView.as_view(),name='add_avaliacao'),
-    path('nota', AvaliacaoListView.as_view(), name='listnota' ),
+    path('nota/<int:pk>/view', AvaliacaoListView.as_view(), name='listnota' ),
 
 ]

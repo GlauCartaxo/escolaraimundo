@@ -10,12 +10,11 @@ class AvaliacaoCreateView(LoginRequiredMixin, CreateView):
     model = Avaliacao
     form_class = AvaliacaoCreateForm
     template_name = 'avaliacao/createavaliacao.html'
-#     success_url = reverse_lazy('exames:detalhes_exames'
 
 
 class AvaliacaoListView(LoginRequiredMixin, ListView):
     model = Avaliacao
-    context_object_name = 'nota'
+    context_object_name = 'avaliacao'
     template_name = "avaliacao/listnotas.html"
 
 

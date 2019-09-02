@@ -10,4 +10,8 @@ class Avaliacao(models.Model):
     realisacao = models.DateTimeField(auto_now_add=False)
 
     def str(self):
-        return f'Avaliacao {self.pk} | Professor {self.professor}' 
+        return f'Avaliacao {self.pk} | Realisacao {self.realisacao} | Professor {self.professor} | Aluno {self.aluno}' 
+    
+    class Meta:
+        verbose_name = 'Avaliacao'
+        verbose_name_plural = 'Avaliacoes'
