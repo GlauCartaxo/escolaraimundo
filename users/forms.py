@@ -91,7 +91,7 @@ class AlunoCreationForm(forms.ModelForm):
 
     class Meta:
         model = Aluno
-        fields = ['nome', 'email', 'rg', 'cpf']
+        fields = ['nome', 'email', 'rg', 'cpf', 'matricula']
 
     def clean_password2(self):
         # Check that the two password entries match

@@ -3,59 +3,73 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}{%endblock title %}</title>
-    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
-    <link rel="stylesheet" href="node_modules/bootstrap/compiler/stylenavs.css">
-    
-    {% block style %} {% endblock style %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{% block title %}{%endblock title %}</title>
+  <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+  <link rel="stylesheet" href="node_modules/bootstrap/compiler/stylenavs.css">
+
+  {% block style %} {% endblock style %}
 
 </head>
+
 <body>
 
-        <nav class="navbar navbar-dark bg-dark">
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                        <a class="navbar-brand" href="{% url 'core:index' %}">Hello</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
-                          <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                          <ul class="navbar-nav">
-                            
-                          {% if not request.user.is_authenticated %}  
-                          <li class="nav-item">
-                            <a class="nav-link" href="{% url 'users:login_users' %}">Login</a>     
-                        </li> 
-                        </form> 
-                          {% else %}
-                          <li class="nav-item">
-                            <a class="nav-link" href="{% url 'users:detail_users' request.user.id %}">  {{request.user}}  </a>
-                            <li class="nav-item">
-                              <a class="nav-link" href="{% url 'users:logout_users' %}">  Logout  </a>
-                            </li>   
-                          </li>
-                          {% endif %}
-                            
-                            <li class="nav-item dropdown">
-                              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </nav>
-      </nav>
-    {% block body %}
-    {% endblock body %}
+  <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="{% url 'core:index' %}">Olá, {{ request.user.nome }}
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+
+          {% if not request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'users:login_users' %}">Login</a>
+          </li>
+          </form>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'users:logout_users' %}"> Logout </a>
+          </li>
+          {% endif %}
+          </li>
+          {% if request.user.is_professor %}
+          <li><a class="nav-link" href="{% url 'users:detalhes_professor' request.user.id %}">SEUS DETALHES</a></li>
+          <li><a class="nav-link" href="{% url 'avaliacao:add_avaliacao' %}">Dar nota</a></li>
+          {% elif request.user.is_aluno %}
+          <li><a class="nav-link" href="{% url 'users:detalhes_aluno' request.user.id %}">SEUS DETALHES</a></li>
+          {% else %}
+          {% endif %}
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+        </ul>
+      </div>
+    </nav>
+  </nav>
+  {% block body %}
+  {% endblock body %}
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>l

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %} Avaliação {% endblock title %}
+
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock scripts %}
+
+{% block body %}
+
+<h3>APLICAR NOTAS:</h3>
+    <div><form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p> Professor: {% render_field form.professor %}</p>
+        <p> Aluno: {% render_field form.aluno %}</p>
+        <p>Realisacao: {% render_field form.realisacao %}</p>
+        <p> Nota: {% render_field form.nota %}</p>
+<div class="btn-group btn-group-xs">
+    <button type="button submit" class="btn btn-success">Adicionar</button>
+</div>
+</form>
+</div>
+{% block style %}
+
+{% endblock style%}
+
+{% endblock body %}

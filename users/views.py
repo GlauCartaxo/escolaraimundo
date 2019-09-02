@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from users.models import Usuario
+from users.models import Usuario, Aluno, Professor
 from django.views import generic
 from django.views.generic import DetailView
 from django.contrib.auth.views import LoginView, LogoutView
@@ -18,4 +18,15 @@ class UserDetailView(DetailView):
     model = Usuario
     template_name = "users/detail.html"
     context_object_name = 'users'
+
+class AlunoDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Aluno
+    context_object_name = 'users'
+    template_name = 'users/detalhes_aluno.html'
+
+class ProfessorDetailView(LoginRequiredMixin ,generic.DetailView):
+    model = Professor
+    context_object_name = 'users'
+    template_name = 'users/detalhes_professor.html'
+
 
