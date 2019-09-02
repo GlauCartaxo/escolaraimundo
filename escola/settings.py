@@ -16,8 +16,7 @@ import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Activate Django-Heroku.
-django_heroku.settings(locals())
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -26,9 +25,9 @@ django_heroku.settings(locals())
 SECRET_KEY = '*d25-utu2++f0-ju9*=&qfn(!ir7qz7agecghoqcz-8ygw=*l5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["0.0.0.0", "localhost", "https://murmuring-scrubland-13968.herokuapp.com/"]
 
 
 # Application definition
@@ -41,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
+
     
 
     #my apps
